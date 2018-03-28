@@ -43,6 +43,10 @@ Custom property | Description | Default
 				@apply --paper-expansion-panel-header;
 			}
 
+			:host:not([opened]) .header:not([focused]):hover {
+				@apply --paper-expansion-panel-header-hover;
+			}
+
 			.toggle {
 				color: var(--disabled-text-color);
 				flex-shrink: 0;
