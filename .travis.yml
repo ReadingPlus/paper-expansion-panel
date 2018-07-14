@@ -8,15 +8,15 @@ addons:
 cache:
   directories:
   - node_modules
-  - "$HOME/.cache/bower"
+  - $HOME/.cache/bower
 before_install:
 - if [ -d node_modules ] && [ x$(cat node_modules/.last-node-version 2>/dev/null)
   != x$(node -e 'console.log(process.version)') ]; then npm rebuild && node -e 'console.log(process.version)'
   > node_modules/.last-node-version; fi
 before_script:
 - npm install web-component-tester bower@1.7.9 polylint
-- "$(npm bin)/bower install"
-- "$(npm bin)/polylint --no-recursion"
+- $(npm bin)/bower install
+- $(npm bin)/polylint --no-recursion
 script:
 - xvfb-run $(npm bin)/wct
 after_success: '[ ${TRAVIS_PULL_REQUEST} = "false" ] && [ ${TRAVIS_BRANCH} = "master"
@@ -25,3 +25,5 @@ after_success: '[ ${TRAVIS_PULL_REQUEST} = "false" ] && [ ${TRAVIS_BRANCH} = "ma
 notifications:
   slack:
     secure: HQAwwb2AX/g+yilm1F+20fa+Z+Ij7NyDZQpLDU9AK1rJ5kWDzcC09F5KkILGtu6pgyeeCXYXcQwjFnKLRFFoerxOIe0fObFnTQwQnTqtGgA3ItaBc6RErsZXK42g29xFe9sg12iZ21jPd6gRgNoQqgqo3Z4ULJJLJ9rQBUKTzNl9fmOOSjeUX9frsHgYjtXqHsm/EzqjnmqkrFhuOPUqOh6uiCxUzPU3ilusjU2jW9rZa/IKUZomZggYJ9Zt3q6uALzb3ra1OP5CbYzoqMWgJSIkUSysAvDiZnA1nRBXbJsqmDDI/lkvAir2AoeRqfbnB0Mx23pZ9C/qVxbnGLci63IhSqEaFSmOPjTnP+Zh7Ee1QNZLcDqCC9d70mLhZg+NzHUUmTX0n4AQY4y1XfHnGurnwINm/b2v+/9rdFpBZb1yxwkI/5vPmfl5dwqQNWoTN4V5dEMURQJpU8SPGuJfk6oaMFSo/VyZVn/wl7sDeslnCLnJPz65m1LAS9y1O/+rFhP/0t25grgoEfe0KMhJqvmlLqN7677wJYwa/IzsA1S+gU1cCH9Z6Ev0GU4L1XJ8Rla7g2B3q29aYOU1no+p8LI89d/V3wTBSsuggWEoxYO148PVbcOx3sBP3Qo8/+i7++HYwmzyxcMyJDYhkxCu5gJemFERLbe+n/9rEkSda+Q=
+after_failure:
+- after_failure
