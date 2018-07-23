@@ -1,32 +1,38 @@
-_[Demo and API Docs](http://collaborne.github.io/paper-expansion-panel)_
+# \<paper-expansion-panel\>
 
 
-paper-expansion-panel [![Travis state](https://travis-ci.org/Collaborne/paper-expansion-panel.svg?branch=master)](https://travis-ci.org/Collaborne/paper-expansion-panel)
-=========
 
-`paper-expansion-panel` provides a A Material Design [expansion panel with header and collapsible content](https://material.google.com/components/expansion-panels.html). The web component is built with [Polymer 1.x](https://www.polymer-project.org).
+## Install the Polymer-CLI
 
-![Screenshot](/doc/screenshot.png "Screenshot")
+First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
 
-To use this element:
+## Viewing Your Application
 
-`bower install paper-expansion-panel`
+```
+$ polymer serve
+```
 
+## Building Your Application
 
-## License
+```
+$ polymer build
+```
 
-    This software is licensed under the Apache 2 license, quoted below.
+This will create a `build/` folder with `bundled/` and `unbundled/` sub-folders
+containing a bundled (Vulcanized) and unbundled builds, both run through HTML,
+CSS, and JS optimizers.
 
-    Copyright 2011-2015 Collaborne B.V. <http://github.com/Collaborne/>
+You can serve the built versions by giving `polymer serve` a folder to serve
+from:
 
-    Licensed under the Apache License, Version 2.0 (the "License"); you may not
-    use this file except in compliance with the License. You may obtain a copy of
-    the License at
+```
+$ polymer serve build/bundled
+```
 
-        http://www.apache.org/licenses/LICENSE-2.0
+## Running Tests
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-    License for the specific language governing permissions and limitations under
-    the License.
+```
+$ polymer test
+```
+
+Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.

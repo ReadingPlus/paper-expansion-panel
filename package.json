@@ -1,0 +1,36 @@
+{
+  "name": "paper-expansion-panel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "paper-expansion-panel.html",
+  "directories": {
+    "test": "test",
+    "demo": "demo"
+  },
+  "scripts": {
+    "test": "polymer test",
+    "test.sauce": "polymer test --plugin sauce",
+    "check.upstream": "check-upstream-for",
+    "postinstall": "npm update; bower install; bower update",
+    "patch-release": "npm version patch && git push --follow-tags",
+    "minor-release": "npm version minor && git push --follow-tags",
+    "major-release": "npm version major && git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReadingPlus/paper-expansion-panel.git"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/ReadingPlus/paper-expansion-panel/issues"
+  },
+  "homepage": "https://github.com/ReadingPlus/paper-expansion-panel#readme",
+  "dependencies": {
+    "bower": "^1.8.0",
+    "polymer-cli": "^0.18.1"
+  },
+  "devDependencies": {
+    "travis-builds": "github:readingplus/travis-builds"
+  }
+}
