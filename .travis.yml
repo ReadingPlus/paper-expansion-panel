@@ -2,16 +2,13 @@ language: node_js
 sudo: required
 dist: trusty
 node_js: v9.11.1
-addons:
-  sauce_connect: true
 cache:
   directories:
   - node_modules
 before_install:
 - echo -e "machine github.com\n  login $GH_TOKEN" >> ~/.netrc
 - "export DEPLOYMENT_TAG=$TRAVIS_BRANCH\nif [ $TRAVIS_TAG ] \n  then\n    export DEPLOYMENT_TAG=$TRAVIS_TAG\nfi"
-script:
-- xvfb-run npm run test.sauce
+script: skip
 after_success:
 - build-element
 - npm run check.upstream
