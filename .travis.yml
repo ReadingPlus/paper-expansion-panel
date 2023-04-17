@@ -4,18 +4,15 @@ dist: trusty
 node_js: v9.11.1
 cache:
   directories:
-  - node_modules
+    - node_modules
 before_install:
-- echo -e "machine github.com\n  login $GH_TOKEN" >> ~/.netrc
-- "export DEPLOYMENT_TAG=$TRAVIS_BRANCH\nif [ $TRAVIS_TAG ] \n  then\n    export DEPLOYMENT_TAG=$TRAVIS_TAG\nfi"
+  - echo -e "machine github.com\n  login $GH_TOKEN" >> ~/.netrc
+  - "export DEPLOYMENT_TAG=$TRAVIS_BRANCH\nif [ $TRAVIS_TAG ] \n  then\n    export DEPLOYMENT_TAG=$TRAVIS_TAG\nfi"
 script: skip
-after_success:
-- build-element
-- npm run check.upstream
-after_failure: cat ./sauce_connect.log
 notifications:
   slack:
     secure: SbXIMj3oGOL/LrH8eDVNI8nuLJM0PIopOLg/I0bo2bun4mqsTUw+11jbtipkXAJRvRV/yM6q03dExBkzfbPCSveF8+mQagX231NgMEgJTd/gk9Y5oiyhVLF8ukeIo/sE1gGq2RUpI8P7XvovdnfVmsw5peVCB0sQ24bTkBjW7YcFMuB8/C/PUgz5iQM76PQ6TYcPUyPoRk3btb8NHKnLK/p92d8SpB0L2SZqEHXQPUvfpBh9qc6CsUXaSgaz/7BYn50MMs5ciAZNiK+Ba2aVbLrbpl+uYC/wMACpqMvYYVJPuQOiTL9nvo4pn/emtW9eWZaBOFq3KB3TAHNxEgfmzAU5a6hx2vyuoB/iJoVXpKpze+K6mnMVCA8nVPxXr7AXLMAJONJtjjVkZbVMjAh9zmDRol/gbETB0BbRldqexkNF7r8ej/Z7LiYdgYGZdxfdTz6mPZsQXQEPKyBitPuAuP2OWCP5d7FDb+amCQ4uzgmg03kFoYM0HtehEt9WIBx8e+LQIzECqRef6lSCQEQLaIfoomkukhofGWI+KS8Ta6e7FtEGRqot8Lk07jB4Tyj2UBc/RGajoFtA1XfLPBiFraI6yhI/vTVB27RvS0Em26hQrOhV7UZm3seEP9Rz5d0KcDiPR50bmlWF1qgjDrXjlBC0hrzDBwhZa/xfgdlIvSU=
 env:
   global:
-  - secure: mIlsZEXmCvYvo1QzB+Ci2qZTvp45SPpx3yBHzTDClCV+YrmjTUeYTIrt8zvGkVizf2Kzj+f/i/PBACqkAjrWcJPhTx+v98mnmdTlLLYOW9WJv648bIZbiJt4NUkuBmGj4m37Ec/77qMbCJF3lH9SjKt+YbNWHPIxtTJVYyLaqNb9vC8cMIbASGL92jZHPSJL6EkFVX7SSVrIWEwoRNy/2BLPPsI6kPGTpAUNadb3GGEE02WsCi8oWR4FHT2+YlKp/xkPntoHePp2lI/Rps5izODXErDecH5YJIxcsfT49ZR/sdLd1VCt8AtzrO7cUJPvTuVhS3ZC2sQEYaPwQxKWuNnUn7AvYvMpD9HtgTL4HedQhU1xGuOY6cryllcUFIGzZCqC9gM2pAz3h1GRoGS+9aR3HM6p8eJR3pM62W5LdK5MQe215yddx/etubOPJxzq/3u4MJkNYg6EpeNdnQ5LWsvTFVwwL6wYYm9F/x6gfl7A5ZIdVTFZnDLgECuiAwfPlfrQITSDZZ29vVq3V7Fn5MLTNLMYWw9TcsFWPN9QHXNpQfVCOMIGsVtzVHs5Ls4wCch7YUYjOGNuk992jfkHxAo71aRY8XOl99D/8C3iqmCivHSDIIlH1X3m+lJKFNrnjMSFqG8uCJpf1s0BJU+rAs7uRqo78LrCyFUrfYRQ9bY=
+    - secure: mIlsZEXmCvYvo1QzB+Ci2qZTvp45SPpx3yBHzTDClCV+YrmjTUeYTIrt8zvGkVizf2Kzj+f/i/PBACqkAjrWcJPhTx+v98mnmdTlLLYOW9WJv648bIZbiJt4NUkuBmGj4m37Ec/77qMbCJF3lH9SjKt+YbNWHPIxtTJVYyLaqNb9vC8cMIbASGL92jZHPSJL6EkFVX7SSVrIWEwoRNy/2BLPPsI6kPGTpAUNadb3GGEE02WsCi8oWR4FHT2+YlKp/xkPntoHePp2lI/Rps5izODXErDecH5YJIxcsfT49ZR/sdLd1VCt8AtzrO7cUJPvTuVhS3ZC2sQEYaPwQxKWuNnUn7AvYvMpD9HtgTL4HedQhU1xGuOY6cryllcUFIGzZCqC9gM2pAz3h1GRoGS+9aR3HM6p8eJR3pM62W5LdK5MQe215yddx/etubOPJxzq/3u4MJkNYg6EpeNdnQ5LWsvTFVwwL6wYYm9F/x6gfl7A5ZIdVTFZnDLgECuiAwfPlfrQITSDZZ29vVq3V7Fn5MLTNLMYWw9TcsFWPN9QHXNpQfVCOMIGsVtzVHs5Ls4wCch7YUYjOGNuk992jfkHxAo71aRY8XOl99D/8C3iqmCivHSDIIlH1X3m+lJKFNrnjMSFqG8uCJpf1s0BJU+rAs7uRqo78LrCyFUrfYRQ9bY=
+after_success: test "$TRAVIS_BRANCH" = master && rebuild-emerson-web
