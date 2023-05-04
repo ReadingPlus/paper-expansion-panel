@@ -1,7 +1,7 @@
 language: node_js
 sudo: required
 dist: trusty
-node_js: v9.11.1
+node_js: Fermium
 cache:
   directories:
     - node_modules
