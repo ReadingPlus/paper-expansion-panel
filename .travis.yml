@@ -6,7 +6,6 @@ cache:
   directories:
     - node_modules
 before_install:
-  - echo -e "machine github.com\n  login $GH_TOKEN" >> ~/.netrc
   - "export DEPLOYMENT_TAG=$TRAVIS_BRANCH\nif [ $TRAVIS_TAG ] \n  then\n    export DEPLOYMENT_TAG=$TRAVIS_TAG\nfi"
 script: skip
 notifications:
@@ -15,4 +14,3 @@ notifications:
 env:
   global:
     - secure: mIlsZEXmCvYvo1QzB+Ci2qZTvp45SPpx3yBHzTDClCV+YrmjTUeYTIrt8zvGkVizf2Kzj+f/i/PBACqkAjrWcJPhTx+v98mnmdTlLLYOW9WJv648bIZbiJt4NUkuBmGj4m37Ec/77qMbCJF3lH9SjKt+YbNWHPIxtTJVYyLaqNb9vC8cMIbASGL92jZHPSJL6EkFVX7SSVrIWEwoRNy/2BLPPsI6kPGTpAUNadb3GGEE02WsCi8oWR4FHT2+YlKp/xkPntoHePp2lI/Rps5izODXErDecH5YJIxcsfT49ZR/sdLd1VCt8AtzrO7cUJPvTuVhS3ZC2sQEYaPwQxKWuNnUn7AvYvMpD9HtgTL4HedQhU1xGuOY6cryllcUFIGzZCqC9gM2pAz3h1GRoGS+9aR3HM6p8eJR3pM62W5LdK5MQe215yddx/etubOPJxzq/3u4MJkNYg6EpeNdnQ5LWsvTFVwwL6wYYm9F/x6gfl7A5ZIdVTFZnDLgECuiAwfPlfrQITSDZZ29vVq3V7Fn5MLTNLMYWw9TcsFWPN9QHXNpQfVCOMIGsVtzVHs5Ls4wCch7YUYjOGNuk992jfkHxAo71aRY8XOl99D/8C3iqmCivHSDIIlH1X3m+lJKFNrnjMSFqG8uCJpf1s0BJU+rAs7uRqo78LrCyFUrfYRQ9bY=
-after_success: test "$TRAVIS_BRANCH" = master && rebuild-emerson-web
